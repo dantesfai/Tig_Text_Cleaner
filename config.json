@@ -1,0 +1,6 @@
+{
+    "keep_punctuation": ["-","'",".","።"],
+    "preserve_words": ["category", "headline"],
+    "output_dir": "cleaned_data",
+    "output_filename": "cleaned_text.txt"
+}
