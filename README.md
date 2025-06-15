@@ -11,8 +11,6 @@
 - **Configurable settings**: Easily configure which punctuation and words to preserve, using the **config.json** file.
 - **Command-line interface (CLI)**: Run the tool with various input files and configurations directly from the command line.
 - **Flexible output**: Cleaned text can be saved to a user-defined directory and filename.
-- **IDF-based stopword generation**: Generate stopwords based on **IDF (Inverse Document Frequency)** scores to improve NLP tasks.
-- **Visualization**: Plot IDF curves to visualize word importance and filter non-informative words.
 
 ## Installation
 
@@ -89,12 +87,9 @@ If you want to use a custom configuration:
 python text_cleaner.py data/input.txt -c config.json -o output -f cleaned_text.txt
 ```
 
-3. IDF Stopword Generation:
-
-You can use the TextCleaner class to generate stopwords based on IDF (Inverse Document Frequency) and visualize the distribution of word importance. The tool generates a plot of IDF values and saves stopwords based on a user-defined threshold.
 
 ## Tests
-To ensure the tool works correctly, unit tests are provided. You can run the tests using pytest:
+Unit tests are provided to ensure the tool works correctly. You can run the tests using pytest:
 
 ```bash
  pytest
@@ -109,5 +104,4 @@ Contributions are welcome! If you have improvements, bug fixes, or new features 
 
 ## Acknowledgements
 Thanks to the NLP community for open-source contributions and resources that helped guide the development of this tool.
-Special thanks to contributors and researchers working on Tigrinya language resources, whose work helped shape this project.
 
