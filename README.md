@@ -115,9 +115,8 @@ You can customize the cleaning process by editing the <code>config.json</code> f
 
 1. Cleaning a Text File:
 
-   ```bash
-
-python text_cleaner.py data/input.txt -o output -f cleaned_text.txt
+   ```bash python text_cleaner.py data/input.txt -o output -f cleaned_text.txt
+   ```
 
 2. Running with Custom Configurations:
 
