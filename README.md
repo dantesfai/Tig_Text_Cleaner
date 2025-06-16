@@ -57,10 +57,11 @@ After installation, you can use text-cleaner as a CLI command (if included as en
 
 ### Option 2: Install Dependencies Manually
 
-   If you're running without installing the full package:
-      ```bash 
+   If you are running without installing the full package:
+
+   ```bash 
          pip install -r requirements.txt 
-      ```
+   ```
  
 ## Usage
 
@@ -84,7 +85,7 @@ To clean a specific column from a CSV:
    python text_cleaner.py input.csv --csv_column text -o cleaned_data -f cleaned_output.csv
    ```
 
-<b>Arguments</b>:
+Arguments:
     - input.txt: Path to the input file (either a .txt or .csv file).
     - -c config.json: (Optional) Path to the configuration file. Default is config.json.
     - -o cleaned_data: (Optional) Directory where the cleaned text will be saved. Default is  cleaned_data.
@@ -134,7 +135,7 @@ If you want to use a custom configuration:
    This will run all the tests defined in the tests/ directory, ensuring that the tool functions as expected.
 
 ## License
-This tool is open-source and free to use for research purposes under the <b>MIT License</b>.
+This tool is open-source and free to use for research purposes under the MIT License.
 
 ## Contributing
 Contributions are welcome! If you have improvements, bug fixes, or new features to contribute, feel free to fork this repository, make your changes, and submit a pull request.
