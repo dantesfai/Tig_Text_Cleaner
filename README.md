@@ -1,10 +1,10 @@
 # TextCleaner for Tigrinya
 
-## Purpose
+##  Purpose
 
-**TextCleaner** is a robust text cleaning and preprocessing tool designed for Tigrinya, a low-resource language. It simplifies the process of sanitizing and preparing text data for NLP tasks, including text classification and information retrieval. The tool supports handling both **CSV** and **TXT** files, and allows for the removal of unwanted characters, HTML tags, and alphanumeric content, while preserving specific words or punctuation as required by the user.
+**TextCleaner** is a robust preprocessing tool tailored for **Tigrinya**, a low-resource language. It streamlines the process of cleaning, normalizing, and preparing text data for NLP tasks such as classification, clustering, and information retrieval.
 
-## Features
+The tool supports both `.txt` and `.csv` files, removes noise (like HTML, punctuation, or alphanumerics), and allows customization to **preserve important terms or punctuation** relevant to your dataset.
 
 - **Multi-file support**: Can process both **TXT** and **CSV** files.
 - **Customizable cleaning**: Remove HTML tags, alphanumeric characters, and unwanted punctuation while preserving specific words and characters.
@@ -15,18 +15,21 @@
 
 ## Installation
 
-### Prerequisites
+###  Prerequisites
 
-Make sure you have **Python 3.x** installed. This project also requires several dependencies, which can be installed via **pip**.
+- Python 3.6+
+- Pip
 
-### Steps to Install
+###  Setup Instructions
 
 1. Clone the repository to your local machine:
    ```bash
    git clone https://github.com/yourusername/text_cleaner.git
+ 
 
 2. Navigate to the project directory:
-   ```bash
+
+   ```bash 
    cd text_cleaner
 
 3. Install the package using setup.py:
