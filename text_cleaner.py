@@ -4,6 +4,7 @@ import string
 import json
 import logging
 import argparse
+import pandas as pd
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(message)s")
@@ -68,7 +69,7 @@ class TextCleaner:
         return " ".join(cleaned_words)
 
     def _create_char_map(self):
-        """Creates a character translation dictionary for efficient text normalization."""
+        """Creates a character translation dictionary for efficient text normalization (This can be considered as a light normalization)."""
         char_replacements = {
             "ሠ": "ሰ", "ሡ": "ሱ", "ሢ": "ሲ", "ሣ": "ሳ", "ሤ": "ሴ", "ሥ": "ስ", "ሦ": "ሶ",
             "ፀ": "ጸ", "ፁ": "ጹ", "ፂ": "ጺ", "ፃ": "ጻ", "ፄ": "ጼ", "ፅ": "ጽ", "ፆ": "ጾ"
@@ -108,14 +109,31 @@ def main():
     parser.add_argument("-c", "--config", help="Path to configuration file (JSON)", default="config.json")
     parser.add_argument("-o", "--output_dir", help="Directory to save cleaned text", default="cleaned_data")
     parser.add_argument("-f", "--filename", help="Output filename", default="cleaned_text.txt")
+    parser.add_argument("--csv_column", help="If input is CSV, specify which column to clean", default=None)
     args = parser.parse_args()
 
     cleaner = TextCleaner(config_file=args.config)
-    with open(args.input_file, 'r', encoding='utf-8') as f:
-        text = f.read()
 
-    cleaned_text = cleaner.clean_text(text, output_dir=args.output_dir, output_filename=args.filename)
-    print(f"Cleaned text saved to {args.output_dir}/{args.filename}")
+    if args.input_file.lower().endswith(".csv") and args.csv_column:
+        # Load and clean CSV column
+        df = pd.read_csv(args.input_file)
+        if args.csv_column not in df.columns:
+            raise ValueError(f"Column '{args.csv_column}' not found in CSV file.")
+        
+        df[args.csv_column] = df[args.csv_column].astype(str).apply(lambda x: cleaner.clean_text(x, output_dir=None))
+        
+        os.makedirs(args.output_dir, exist_ok=True)
+        output_path = os.path.join(args.output_dir, args.filename)
+        df.to_csv(output_path, index=False)
+        print(f"Cleaned CSV saved to {output_path}")
+    else:
+        # Treat as plain text
+        with open(args.input_file, 'r', encoding='utf-8') as f:
+            text = f.read()
+
+        cleaned_text = cleaner.clean_text(text, output_dir=args.output_dir, output_filename=args.filename)
+        print(f"Cleaned text saved to {args.output_dir}/{args.filename}")
 
 if __name__ == "__main__":
     main()
+    

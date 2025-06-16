@@ -11,8 +11,7 @@
 - **Configurable settings**: Easily configure which punctuation and words to preserve, using the **config.json** file.
 - **Command-line interface (CLI)**: Run the tool with various input files and configurations directly from the command line.
 - **Flexible output**: Cleaned text can be saved to a user-defined directory and filename.
-- **IDF-based stopword generation**: Generate stopwords based on **IDF (Inverse Document Frequency)** scores to improve NLP tasks.
-- **Visualization**: Plot IDF curves to visualize word importance and filter non-informative words.
+- **Package-ready**: Can be installed via `setup.py` and used as a module or CLI tool.
 
 ## Installation
 
@@ -30,15 +29,21 @@ Make sure you have **Python 3.x** installed. This project also requires several 
    ```bash
    cd text_cleaner
 
-3. Install required dependencies:
+3. Install the package using setup.py:
+   ```bash
+      pip install .
+      ```
+   
+After installation, you can use text-cleaner as a CLI command (if included as entry point in setup.py).
 
-   ```bash 
-   pip install -r requirements.txt 
+### Option 2: Install with Dependencies Only
 
-4. (Optional) If you want to run tests, you can install **pytest**:
-   ```bash 
-   pip install pytest
-  
+   If you're running without installing the full package:
+      ```bash 
+         pip install -r requirements.txt 
+         ```
+
+ 
 
 ## Usage
 
@@ -54,6 +59,12 @@ To clean a text file, use the following command:
     - -c config.json: (Optional) Path to the configuration file. Default is config.json.
     - -o cleaned_data: (Optional) Directory where the cleaned text will be saved. Default is  cleaned_data.
     - -f output.txt: (Optional) Filename for the output cleaned text. Default is cleaned_text txt.output.txt
+
+To clean a specific column from a CSV:
+   ```bash
+   python text_cleaner.py input.csv --csv_column text -o cleaned_data -f cleaned_output.csv
+   ```
+
 
 ### Configuration
 
@@ -88,13 +99,9 @@ If you want to use a custom configuration:
   ```bash 
 python text_cleaner.py data/input.txt -c config.json -o output -f cleaned_text.txt
 ```
-
-3. IDF Stopword Generation:
-
-You can use the TextCleaner class to generate stopwords based on IDF (Inverse Document Frequency) and visualize the distribution of word importance. The tool generates a plot of IDF values and saves stopwords based on a user-defined threshold.
-
+  
 ## Tests
-To ensure the tool works correctly, unit tests are provided. You can run the tests using pytest:
+Unit tests are provided to ensure the tool works correctly. You can run the tests using pytest:
 
 ```bash
  pytest
@@ -109,5 +116,4 @@ Contributions are welcome! If you have improvements, bug fixes, or new features 
 
 ## Acknowledgements
 Thanks to the NLP community for open-source contributions and resources that helped guide the development of this tool.
-Special thanks to contributors and researchers working on Tigrinya language resources, whose work helped shape this project.
 
