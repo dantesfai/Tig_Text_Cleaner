@@ -86,6 +86,7 @@ To clean a specific column from a CSV:
    ```
 
 Arguments:
+
     - input.txt: Path to the input file (either a .txt or .csv file).
     - -c config.json: (Optional) Path to the configuration file. Default is config.json.
     - -o cleaned_data: (Optional) Directory where the cleaned text will be saved. Default is  cleaned_data.
