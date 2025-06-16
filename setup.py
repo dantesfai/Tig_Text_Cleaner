@@ -1,20 +1,25 @@
 # setup.py
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
-    name='tigrinya_cleaner',
-    version='1.0',
-    py_modules=['cleaned_text'],
-    install_requires=[],
+    name='textcleaner',
+    version='0.1.0',
+    author='Dani Tesfai',
+    author_email='d202361017@xs.ustb.edu.cn',
+    description='A Tigrinya text cleaning tool',
+    long_description=open('README.md', encoding='utf-8').read(),
+    long_description_content_type='text/markdown',
+    packages=find_packages(),
+    py_modules=['text_cleaner'],
+    install_requires=[
+        # Only third-party packages; standard libs are excluded
+        'pandas'
+    ],
     entry_points={
         'console_scripts': [
-            'tigrinya-cleaner=cleaned_text:main',
+            'textcleaner=text_cleaner:main',
         ],
     },
-    author='Daniel Tesfai',
-    author_email='d202361017@xs.ustb.edu.cn',
-    description='A CLI tool for cleaning and little normalizing Tigrinya text',
-    url='https://github.com/dantesfai/Tig_Text_Cleaner',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
@@ -22,3 +27,4 @@ setup(
     ],
     python_requires='>=3.6',
 )
+
