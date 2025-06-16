@@ -102,10 +102,11 @@ You can customize the cleaning process by editing the <code>config.json</code> f
    - Customize the output directory and filename.
 
 **Example** config.json:
-```bash
+
+```json
 {
     "keep_punctuation": ["-","'","."],
-    "preserve_words": ["category", "headline"],
+    "preserve_words": ["category", "headline"], 
     "output_dir": "cleaned_data",
     "output_filename": "cleaned_text.txt"
 }
@@ -115,7 +116,8 @@ You can customize the cleaning process by editing the <code>config.json</code> f
 
 1. Cleaning a Text File:
 
-   ```bash python text_cleaner.py data/input.txt -o output -f cleaned_text.txt
+   ```bash 
+   python text_cleaner.py data/input.txt -o output -f cleaned_text.txt
    ```
 
 2. Running with Custom Configurations:
